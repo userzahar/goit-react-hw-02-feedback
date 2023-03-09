@@ -4,15 +4,28 @@ import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Notification } from "./Notification/Notification";
 import { Section } from "./Section/Section";
 import { Statistic } from "./Statistic/Statistic";
+import PropTypes from 'prop-types';
 
 
 
 export class App extends Component {
+  static defaultProps = {
+    initialGood: 0,
+    initialNeutral: 0,
+    initialBad: 0,
+  };
+
+  static propTypes = {
+    initialGood: PropTypes.number,
+    initialNeutral: PropTypes.number,
+    initialBad: PropTypes.number,
+  };
+
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0
-  }
+    good: this.props.initialGood,
+    neutral: this.props.initialNeutral,
+    bad: this.props.initialBad,
+  };
   onLeaveFeedback = key => {
     this.setState(prevState => {
       // console.log({ [key]: prevState[key] + 1 });

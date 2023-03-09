@@ -4,13 +4,13 @@ export function Statistic({ good, neutral, bad, total, positivePercentage }) {
     <p className="feedback__result">Statistics</p>
     <ul className="feedback__res-list">
       <li className="feedback__res-item">
-        <span className="feedback__value">{good}</span>
+        <span className="feedback__value">Good:{good}</span>
       </li>
       <li className="feedback__res-item">
-        <span className="feedback__value">{neutral}</span>
+        <span className="feedback__value">Neutral:{neutral}</span>
       </li>
       <li className="feedback__res-item">
-        <span className="feedback__value">{bad}</span>
+        <span className="feedback__value">Bad:{bad}</span>
       </li>
       <li className="feedback__res-item">
         <span className="feedback__value">{total}</span>
@@ -20,5 +20,5 @@ export function Statistic({ good, neutral, bad, total, positivePercentage }) {
       </li>
     </ul>
   </>
-} 
-    
+}
+
