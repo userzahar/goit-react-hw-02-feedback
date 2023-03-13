@@ -4,16 +4,8 @@ import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Notification } from "./Notification/Notification";
 import { Section } from "./Section/Section";
 import { Statistic } from "./Statistic/Statistic";
-import PropTypes from 'prop-types';
-
-
 
 export class App extends Component {
-  static propTypes = {
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
-  };
   state = {
     good: 0,
     neutral: 0,

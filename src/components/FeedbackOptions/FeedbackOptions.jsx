@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 export function FeedbackOptions({ options, onLeaveFeedback }) {
     return <ul className="feedback__btn-list">
         {options.map(option => {
@@ -11,4 +11,9 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
             );
         })}
     </ul>
+}
+
+FeedbackOptions.propTypes = {
+    options:PropTypes.arrayOf(PropTypes.string),
+    onLeaveFeedback:PropTypes.func,
 }
