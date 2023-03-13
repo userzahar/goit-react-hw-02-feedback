@@ -9,38 +9,29 @@ import PropTypes from 'prop-types';
 
 
 export class App extends Component {
-  static defaultProps = {
-    initialGood: 0,
-    initialNeutral: 0,
-    initialBad: 0,
-  };
-
   static propTypes = {
-    initialGood: PropTypes.number,
-    initialNeutral: PropTypes.number,
-    initialBad: PropTypes.number,
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
   };
-
   state = {
-    good: this.props.initialGood,
-    neutral: this.props.initialNeutral,
-    bad: this.props.initialBad,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
   onLeaveFeedback = key => {
     this.setState(prevState => {
-      // console.log({ [key]: prevState[key] + 1 });
       return { [key]: prevState[key] + 1 };
     });
   };
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return (good + neutral + bad);
-
   };
 
   countPositiveFeedbackPercentage = () => {
     const { good, neutral, bad } = this.state;
-    return Math.round((good / (good + neutral + bad)) * 100);
+    return Math.round((good / (good + neutral + bad)) * "100");
 
   };
   render() {
@@ -48,14 +39,14 @@ export class App extends Component {
       <FeedbackOptions
         options={Object.keys(this.state)}
         onLeaveFeedback={this.onLeaveFeedback} />
-      <Notification message="There is no feedback" value={this.countTotalFeedback()}>
+      {this.countTotalFeedback() ?
         <Statistic
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
           total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()} />
-      </Notification>
+          positivePercentage={this.countPositiveFeedbackPercentage()} /> :
+        <Notification message="There is no feedback" />}
     </Section>
   }
 };
