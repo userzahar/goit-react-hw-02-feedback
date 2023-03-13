@@ -1,7 +1,7 @@
 
 export function Section({ title, children }) {
-    return <div className="feedback">
-        <p className="feedback__header">{title}</p>
+    return <div className="section">
+        <p className={"section__header"}>{title}</p>
         {children}
     </div>
 }
